@@ -25,5 +25,6 @@ public class Propietario {
         System.out.println("Telefono: " + telefono);
         for (Mascota m : mascotas) {
             m.mostrarHistorial();
+        }
     }
 }

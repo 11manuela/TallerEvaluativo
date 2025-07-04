@@ -15,12 +15,16 @@ public class Mascota {
         this.edad = edad;
     }
 
-    public void mostrarHistorial(){
-        System.out.println("Mascota: " + nombre);
-
-    }
-
     public void agregarConsulta(Consulta consulta){
         consultas.add(consulta);
+    }
+
+    public void mostrarHistorial(){
+        System.out.println("Mascota: " + nombre);
+        System.out.println("Especie: " + especie);
+        System.out.println("Edad: " + edad);
+        for (Consulta consu : consultas) {
+            consu.mostrarDetallesConsulta();
+        }
     }
 }
