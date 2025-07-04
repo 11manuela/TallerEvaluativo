@@ -16,12 +16,6 @@ public class AccesoMismoPaquete {
         m.metodoProtegido();   // OK
         m.metodoPublico();     // OK
 
-        //¿Qué modificadores son accesibles desde una subclase en otro paquete?
-        //Protected y public son accesibles
-        //¿Que modificadores permite acceder desde cualquier clase del mismo paquete?
-        //Default, public y protected
-        //¿Que pasaría si todos los atributos fueran public?
-        //Se podría acceder de forma más fácil a los atributos, modificarlos y alterar su estado en una clase
-        // permitiendo así posibles errores.
+
     }
 }

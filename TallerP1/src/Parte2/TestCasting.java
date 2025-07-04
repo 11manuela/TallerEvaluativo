@@ -6,28 +6,28 @@ import Parte1.Perro;
 public class TestCasting {
 
     public static void main(String[] args) {
-        Mascota m = new Gato("Michi");
+        Mascota mascota2 = new Gato("Michi");
 
         // ¿Qué pasa aquí? - Se agrega el instanceof para ejecución sin erorres
-        if(m instanceof Perro){
-            Perro p = (Perro) m;  // Esto lanza ClassCastException
-            p.ladrar();
+        if(mascota2 instanceof Perro){
+            Perro perro2 = (Perro) mascota2;  // Esto lanza ClassCastException
+            perro2.ladrar();
         }else{
             System.out.println("No es un perro, no se puede ladrar");
         }
 
         // Ejemplos realizados de casting
-        Mascota p = new Perro("Luna");
-        if(p instanceof Gato){
-            Gato g = (Gato) p;
-            g.maullar();
+        Mascota perro3 = new Perro("Luna");
+        if(perro3 instanceof Gato){
+            Gato gato1 = (Gato) perro3;
+            gato1.maullar();
         }else{
             System.out.println("No es un gato, no puede maullar");
         }
-        Mascota f = new Perro("Zoe");
-        if(f instanceof Perro){
-            Perro e = (Perro) f;
-            e.ladrar();
+        Mascota perro4 = new Perro("Zoe");
+        if(perro4 instanceof Perro){
+            Perro perro5 = (Perro) perro4;
+            perro5.ladrar();
         }else{
             System.out.println("No es un perro, no se puede ladrar");
         }

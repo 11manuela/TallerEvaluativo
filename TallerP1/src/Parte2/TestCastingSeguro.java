@@ -7,11 +7,11 @@ import Parte1.Perro;
 public class TestCastingSeguro {
 
     public static void main(String[] args) {
-        Mascota m = new Gato("Michi");
+        Mascota mascota1 = new Gato("Michi");
 
-        if (m instanceof Perro) {
-            Perro p = (Perro) m;
-            p.ladrar();
+        if (mascota1 instanceof Perro) {
+            Perro perro1 = (Perro) mascota1;
+            perro1.ladrar();
         } else {
             System.out.println("No es un perro, no se puede ladrar.");
         }

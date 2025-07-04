@@ -1,0 +1,18 @@
+PREGUNTAS PARA REFLEXIÓN
+
+1.¿Que pasa si se envía una clase que no hereda a mascotas?
+-No podría tener los métodos y atributos de la clase padre.
+
+2.¿Cómo se comporta si eliminas el instanceof y casteas directamente?
+-El instanceof permite verificar antes del casteo lo cual es obligatorio hacerlo ya que si no se hace en tiempo de ejecución habría un error ClassCastException.
+
+PREGUNTAS PARA CIERRE
+
+1.¿Qué modificadores son accesibles desde una subclase en otro paquete?
+-Protected y public son accesibles.
+
+2.¿Que modificadores permite acceder desde cualquier clase del mismo paquete?
+-Default, public y protected.
+
+3.¿Que pasaría si todos los atributos fueran public?
+-Se podría acceder de forma más fácil a los atributos, modificarlos y alterar su estado en una clase permitiendo así posibles errores.
