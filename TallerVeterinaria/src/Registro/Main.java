@@ -1,10 +1,10 @@
 package Registro;
+
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-
         //Registro del propietario
         Scanner sc = new Scanner(System.in); //Crea lector desde el teclado
         System.out.println("----------------------------");
@@ -25,13 +25,13 @@ public class Main {
         int cantMascotas = Integer.parseInt(sc.nextLine());
 
         for (int mascotas = 0; mascotas < cantMascotas; mascotas++) {
-            System.out.println("Mascota: "+(mascotas+1));
+            System.out.println("Mascota: " + (mascotas + 1));
             System.out.println("Nombre: ");
             String nombre = sc.nextLine();
             System.out.println("Especie: ");
             String especie = sc.nextLine();
             System.out.println("Edad: ");
-            String edad = sc.nextLine();
+            int edad = Integer.parseInt(sc.nextLine());
             System.out.println("----------------------------");
 
             Mascota mascota = new Mascota(nombre, especie, edad);
@@ -41,7 +41,7 @@ public class Main {
             int cantidadConsultas = Integer.parseInt(sc.nextLine());
 
             for (int consultas = 0; consultas < cantidadConsultas; consultas++) {
-                System.out.println("Consulta: " +(consultas+1));
+                System.out.println("Consulta: " + (consultas + 1));
                 System.out.println("Codigo: ");
                 String codigo = sc.nextLine();
                 System.out.println("Fecha: ");
@@ -81,5 +81,4 @@ public class Main {
         }
         sc.close();
     }
-
 }
