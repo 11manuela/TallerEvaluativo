@@ -85,8 +85,16 @@ public class Propietario {
         System.out.println("Nombre: " + nombre);
         System.out.println("Documento: " + documento);
         System.out.println("Telefono: " + telefono);
-        for (Mascota m : mascotas) {
-            m.mostrarHistorial();
+      /*  for (Mascota m : mascotas) {
+            m.mostrarHistorial();*/
+
+        }
+
+        public void mostrarMascotas() {
+            for (Mascota m : mascotas) {
+                System.out.println();
+                m.mostrarHistorial();
+
         }
 
     }

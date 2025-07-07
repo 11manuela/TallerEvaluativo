@@ -1,5 +1,7 @@
 package Registro;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+
 public class Consulta {
 
     //Refactor
@@ -27,16 +29,22 @@ public class Consulta {
         this.codigo = codigo;
     }*/
 
-    public void setCodigo(String codigo){
-
+    public void setCodigo(String codigo) {
+        if (codigo == null || codigo.isBlank()) {
+            throw new IllegalArgumentException("Código inválido.");
+        }
+        this.codigo = codigo;
     }
 
-    public String getFecha() {
-        return fecha;
-    }
+    // public String getFecha() { return fecha; }
+    public LocalDate getFecha() { return fecha; }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setFecha(String fechaTexto) {
+        try {
+            this.fecha = LocalDate.parse(fechaTexto); // Formato YYYY-MM-DD
+        } catch (DateTimeParseException e) {
+            throw new IllegalArgumentException("Formato de fecha inválido.");
+        }
     }
 
     public Veterinario getVeterinario() {
@@ -44,6 +52,9 @@ public class Consulta {
     }
 
     public void setVeterinario(Veterinario veterinario) {
+        if (veterinario == null) {
+            throw new IllegalArgumentException("Veterinario requerido.");
+        }
         this.veterinario = veterinario;
     }
 
