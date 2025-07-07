@@ -25,4 +25,7 @@ public class Veterinario {
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
+
+    public void mostrarPerfil() {
+    }
 }
