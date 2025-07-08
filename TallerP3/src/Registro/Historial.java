@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Historial {
 
+
     private ArrayList<Consulta> consultas;
 
     public Historial() {
