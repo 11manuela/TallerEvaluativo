@@ -36,7 +36,7 @@ public class Propietario {
     //Validación del nombre
     public void setNombre(String nombre){
         if (nombre == null | nombre.isBlank()){
-            throw new IllegalArgumentException("El nombre no puedew estar vacio");
+            throw new IllegalArgumentException("El nombre no puede estar vacio");
         }
         this.nombre = nombre;
     }
@@ -82,9 +82,9 @@ public class Propietario {
     }*/
 
     public void mostrarInformación() {
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Documento: " + documento);
-        System.out.println("Telefono: " + telefono);
+        System.out.println("Nombre: " + this.nombre);
+        System.out.println("Documento: " + this.documento);
+        System.out.println("Telefono: " + this.telefono);
       /*  for (Mascota m : mascotas) {
             m.mostrarHistorial();*/
 
