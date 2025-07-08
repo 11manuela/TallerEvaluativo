@@ -8,7 +8,7 @@ public class Consulta {
     private String codigo;
    // private String fecha;
     private Veterinario veterinario;
-    private LocalDate fecha;
+    private LocalDate fecha; //Uso del LocalDate
 
 
     public Consulta(String codigo, String fecha, Veterinario veterinario) {
@@ -16,10 +16,24 @@ public class Consulta {
         this.fecha = fecha;
         this.veterinario = veterinario; */
         //Validación y conversión de fecha
+        //Se llaman los setters ya con las validaciones
         setCodigo(codigo);
         setFecha(fecha);
         setVeterinario(veterinario);
     }
+
+    //Datos de la consulta
+    public void mostrarConsulta() {
+        System.out.println("Codigo: " + codigo);
+        System.out.println("Fecha: " + fecha);
+        if (veterinario != null) {
+            veterinario.mostrarPerfil();
+        } else {
+            System.out.println("Sin veterinario asignado.");
+        }
+    }
+
+    //Validaciones en los setters
 
     public String getCodigo() {
         return codigo;
@@ -43,7 +57,7 @@ public class Consulta {
         try {
             this.fecha = LocalDate.parse(fechaTexto); // Formato YYYY-MM-DD
         } catch (DateTimeParseException e) {
-            throw new IllegalArgumentException("Formato de fecha inválido.");
+            throw new IllegalArgumentException("Formato de fecha inválido."); //Sino se agrega bien lanza una excepción.
         }
     }
 
@@ -56,17 +70,6 @@ public class Consulta {
             throw new IllegalArgumentException("Veterinario requerido.");
         }
         this.veterinario = veterinario;
-    }
-
-    public void mostrarDetallesConsulta() {
-        System.out.println("Codigo: " + codigo);
-        System.out.println("Fecha: " + fecha);
-        if(veterinario != null){
-            veterinario.mostrarPerfil();
-        }else{
-            System.out.println("Sin veterinario asignado.");
-        }
-        System.out.println("Veterinario: " + veterinario.getEspecialidad());
 
     }
 }

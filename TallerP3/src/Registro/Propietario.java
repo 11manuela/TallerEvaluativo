@@ -20,7 +20,7 @@ public class Propietario {
         this.mascotas = new ArrayList<>();
 
     }
-
+    //Añade una mascota a la lista
     public void agregarMascota(Mascota mascota) {
         mascotas.add(mascota);
     }
@@ -58,6 +58,7 @@ public class Propietario {
         if(telefono == null || telefono.length()<7){
             throw new IllegalArgumentException("Telefono inválido.");
         }
+        this.telefono = telefono;
     }
 
 
@@ -82,14 +83,15 @@ public class Propietario {
     }*/
 
     public void mostrarInformación() {
-        System.out.println("Nombre: " + this.nombre);
-        System.out.println("Documento: " + this.documento);
-        System.out.println("Telefono: " + this.telefono);
-      /*  for (Mascota m : mascotas) {
+        System.out.println("Nombre del propietario: " + nombre);
+        System.out.println("Documento: " + documento);
+        System.out.println("Telefono: " + telefono);
+      /*  for (Mascota m : mascotas) { //Separe la responsabilidad para que sea mucho mas oredenado
             m.mostrarHistorial();*/
 
         }
 
+        //Muestra la información de cada mascota con su historial.
         public void mostrarMascotas() {
             for (Mascota m : mascotas) {
                 System.out.println();

@@ -10,5 +10,11 @@ Clase Consulta: La consulta de la mascota, crea una consulta muestra sus detalle
 
 Clase Veterinario: La persona encargada de ateder a la mascota.
 
+Clase Veterinario: La persona encargada de ateder a la mascota.
+
+Clase historial: Se encarga de gestionar el conjunto de consultas de una mascota.
+
+Clae IDGenerator: Genera los codigos automaticos para las consultas.
+
 Un propietrario puede tener varias mascotas.
 Una mascota puede tener varias consultas.

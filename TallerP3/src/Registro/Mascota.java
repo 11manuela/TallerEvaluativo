@@ -17,10 +17,11 @@ public class Mascota {
         this. consultas = new ArrayList<>();
          */
 
+        //Setters con validación
         setNombre(nombre);
         setEspecie(especie);
         setEdad(edad);
-        this.historial = new Historial();
+        this.historial = new Historial(); //Inicializa un nuevo historial
     }
 
     public String getNombre() {
@@ -67,7 +68,7 @@ public class Mascota {
         }
         this.edad = edad;
     }
-
+    //La clase historial se encarga de manejar la lista de consultas
     /*public ArrayList<Consulta> getConsultas() {
         return consultas;
     }
@@ -81,12 +82,16 @@ public class Mascota {
         historial.agregarConsulta(consulta);
     }
 
+    //Información del registro de mascotas
     public void mostrarHistorial(){
-        System.out.println("Mascota: " + nombre);
+        /*System.out.println("Mascota: " + nombre);
         System.out.println("Especie: " + especie);
-        System.out.println("Edad: " + edad);
+        System.out.println("Edad: " + edad);*/
+        System.out.println("Mascota: " + nombre + " || Especie: " + especie + " || Edad: " + edad + " años");
         System.out.println("Historial de consultas: ");
-       /* for (Consulta consu : consultas) {
+        historial.mostrarConsultas();
+
+       /* for (Consulta consu : consultas) { //Se remplazo por historial.mostrarConsulta
             consu.mostrarDetallesConsulta();
         }*/
     }
