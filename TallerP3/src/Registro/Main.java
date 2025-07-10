@@ -42,7 +42,7 @@ public class Main {
             System.out.println(" \n¿Cuantas consultas desea registrar?: ");
             int cantidadConsultas = Integer.parseInt(sc.nextLine());
 
-            for (int consultas = 1; consultas < cantidadConsultas; consultas++) {
+            for (int consultas = 0; consultas < cantidadConsultas; consultas++) {
                 System.out.println("Consulta: " + (consultas + 1));
 
                 //Codigo automatico con IDGenerator
