@@ -1,12 +1,22 @@
 package Registro;
+import javax.swing.*;
 import java.util.Scanner;
+import javax.swing.SwingUtilities;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        //Registro del propietario
-        Scanner sc = new Scanner(System.in); //Crea lector desde el teclado
+
+        SwingUtilities.invokeLater(() ->
+                new VentanaPrincipal().setVisible(true));
+
+    }
+
+}
+
+
+/* Scanner sc = new Scanner(System.in); //Crea lector desde el teclado
         System.out.println("----------------------------");
         System.out.println(" \n REGISTRO DEL PROPIETARIO ");
         System.out.println("Nombre del propietario: ");
@@ -42,7 +52,7 @@ public class Main {
             System.out.println(" \n¿Cuantas consultas desea registrar?: ");
             int cantidadConsultas = Integer.parseInt(sc.nextLine());
 
-            for (int consultas = 0; consultas < cantidadConsultas; consultas++) {
+            for (int consultas = 1; consultas < cantidadConsultas; consultas++) {
                 System.out.println("Consulta: " + (consultas + 1));
 
                 //Codigo automatico con IDGenerator
@@ -51,7 +61,7 @@ public class Main {
                 /*System.out.println("Codigo: ");
                 String codigo = sc.nextLine();
                 System.out.println("Fecha: ");*/
-                System.out.print("Fecha (YYY-MM-DD): "); //Se implementa el uso del LocalDate
+              /*  System.out.print("Fecha (YYY-MM-DD): "); //Se implementa el uso del LocalDate
                 String fecha = sc.nextLine();
 
                 System.out.println("Información del veterinario: ");
@@ -65,8 +75,8 @@ public class Main {
                 Consulta consulta = new Consulta(codigo, fecha, veterinario);
                 mascota.agregarConsulta(consulta);
 
-            }
-            //Remplazo por propietario.mostrarInformación y propietario.mostrarMascotas ya que de esta manera es más organizado.
+    }
+//Remplazo por propietario.mostrarInformación y propietario.mostrarMascotas ya que de esta manera es más organizado.
             /*System.out.println("Propietario: " + propietario.getNombre());
             System.out.println("Documento: " + propietario.getDocumento());
             System.out.println("Telefono: " + propietario.getTelefono());
@@ -80,14 +90,10 @@ public class Main {
                     System.out.println("Veterinario: " + consulta.getVeterinario().getNombre());
                     System.out.println("Especialidad: " + consulta.getVeterinario().getEspecialidad());*/
 
-            //
-            System.out.println(" \n FICHA CLÍNICA");
+
+          /*  System.out.println(" \n FICHA CLÍNICA");
             propietario.mostrarInformación(); // Permite mostrar los datos del propietario.
             propietario.mostrarMascotas(); //Muestra a las mascotas y su historial correspondiente.
 
             System.out.println("----------------------------");
-            sc.close();
-
-        }
-    }
-}
+            sc.close();*/

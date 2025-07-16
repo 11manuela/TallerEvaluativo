@@ -7,10 +7,11 @@ public class Mascota {
     private String nombre;
     private String especie;
     private int edad;
+    private int clave;
     //private ArrayList<Consulta> consultas = new ArrayList<>();
     private Historial historial;
 
-    public Mascota(String nombre, String especie, int edad) {
+    public Mascota(String nombre, String especie, int edad, int clave) {
         /*this.nombre = nombre;
         this.especie = especie;
         this.edad = edad;
@@ -21,7 +22,16 @@ public class Mascota {
         setNombre(nombre);
         setEspecie(especie);
         setEdad(edad);
+        setClave(clave);
         this.historial = new Historial(); //Inicializa un nuevo historial
+    }
+
+    public int getClave() {
+        return clave;
+    }
+
+    public void setClave(int clave) {
+        this.clave = clave;
     }
 
     public String getNombre() {

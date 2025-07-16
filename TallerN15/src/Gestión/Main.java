@@ -35,7 +35,7 @@ public class Main extends JFrame {
             mReg.addActionListener(e -> registrar());
             mEdit.addActionListener(e -> editar());
             mDel.addActionListener(e -> eliminar());
-    }
+       }
 
     //Registrar
     private void registrar() {
