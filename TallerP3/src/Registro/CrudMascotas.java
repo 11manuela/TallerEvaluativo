@@ -63,9 +63,8 @@ public class CrudMascotas {
             if (m.getEspecie() == null || m.getEspecie().isBlank()) return false;
             return m.getEdad() >= 0;
         }
-
-        }
     }
+}
 
 
 

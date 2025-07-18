@@ -1,14 +1,14 @@
-package Registro;
+package Clinica;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class VentanaPacientes extends JInternalFrame {
 
-    private CrudMascotas.CrudMascota crud;
+    private CrudMascota crud;
     private Runnable postSave;
 
-    public VentanaPacientes(CrudMascotas.CrudMascota crud, Runnable postSave) {
+    public VentanaPacientes(CrudMascota crud, Runnable postSave) {
         super("Formulario de paciente", true, true, true, true);
         this.crud = crud;
         this.postSave = postSave;

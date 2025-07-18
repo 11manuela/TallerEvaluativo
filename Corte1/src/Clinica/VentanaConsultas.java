@@ -1,4 +1,4 @@
-package Registro;
+package Clinica;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -8,13 +8,13 @@ import java.time.format.DateTimeFormatter;
 
 public class VentanaConsultas extends JInternalFrame {
 
-    private CrudMascotas.CrudMascota crudMascotas;
+    private CrudMascota crudMascotas;
     private CrudConsultas crudConsultas;
 
     private final DefaultTableModel modelo = new DefaultTableModel(new String[]{
             "Código", "Fecha", "Mascota", "Veterinario", "Especialidad"}, 0);
 
-    public VentanaConsultas(CrudMascotas.CrudMascota crudMascotas, CrudConsultas crudConsultas) {
+    public VentanaConsultas(CrudMascota crudMascotas, CrudConsultas crudConsultas) {
         super("Consultas", true, true, true, true);
         this.crudMascotas = crudMascotas;
         this.crudConsultas = crudConsultas;
@@ -25,8 +25,10 @@ public class VentanaConsultas extends JInternalFrame {
 
     private void interfaz() {
         setLayout(new BorderLayout());
+
         JTable tabla = new JTable(modelo);
         add(new JScrollPane(tabla), BorderLayout.CENTER);
+
         JPanel form = new JPanel(new FlowLayout());
 
         JTextField txtCodigo = new JTextField(5);
@@ -36,17 +38,21 @@ public class VentanaConsultas extends JInternalFrame {
         JTextField txtFecha = new JTextField(10); // yyyy-MM-dd
         JButton btnCrear = new JButton("Registrar consulta");
 
-        form.add(new JLabel("Código:"));       form.add(txtCodigo);
-        form.add(new JLabel("Mascota:"));      form.add(cboMascota);
-        form.add(new JLabel("Veterinario:"));  form.add(txtVet);
-        form.add(new JLabel("Especialidad:")); form.add(txtEsp);
+        form.add(new JLabel("Código:"));         form.add(txtCodigo);
+        form.add(new JLabel("Mascota:"));        form.add(cboMascota);
+        form.add(new JLabel("Veterinario:"));    form.add(txtVet);
+        form.add(new JLabel("Especialidad:"));   form.add(txtEsp);
         form.add(new JLabel("Fecha (YYYY-MM-DD):")); form.add(txtFecha);
         form.add(btnCrear);
+
         add(form, BorderLayout.NORTH);
 
+        // Renderizar nombres de mascota en el combo
         cboMascota.setRenderer((list, value, idx, sel, foc) ->
                 new JLabel(value == null ? "" :
                         value.getNombre() + " (" + value.getClave() + ")"));
+
+        // Llenar combo con mascotas
         cboMascota.setModel(new DefaultComboBoxModel<>(
                 crudMascotas.informacionMascota().toArray(Mascota[]::new)));
 
@@ -63,19 +69,16 @@ public class VentanaConsultas extends JInternalFrame {
                 return;
             }
 
-            // Validación de formato: YYYY-MM-DD (sin try-catch)
             if (!sFecha.matches("\\d{4}-\\d{2}-\\d{2}")) {
-                JOptionPane.showMessageDialog(this,
-                        "Formato de fecha inválido. Usa YYYY-MM-DD");
+                JOptionPane.showMessageDialog(this, "Formato de fecha inválido. Usa YYYY-MM-DD");
                 return;
             }
 
             LocalDate fecha = LocalDate.parse(sFecha, DateTimeFormatter.ISO_LOCAL_DATE);
+            Veterinario vet = new Veterinario(nombreVet, especial);
+            Consulta consulta = new Consulta(cod, fecha, vet, m);
 
-            Veterinario vetObj = new Veterinario(nombreVet, especial);
-            Consulta c = new Consulta(cod, fecha, vetObj, m);
-
-            if (!crudConsultas.guardar(c)) {
+            if (!crudConsultas.guardar(consulta)) {
                 JOptionPane.showMessageDialog(this, "Código duplicado");
                 return;
             }
@@ -86,7 +89,7 @@ public class VentanaConsultas extends JInternalFrame {
     }
 
     private void limpiarCampos(JTextField... campos) {
-        for (JTextField t : campos) t.setText("");
+        for (JTextField campo : campos) campo.setText("");
     }
 
     private void actualizar() {

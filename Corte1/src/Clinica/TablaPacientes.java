@@ -1,4 +1,4 @@
-package Registro;
+package Clinica;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -6,10 +6,10 @@ import java.awt.*;
 
 public class TablaPacientes extends JInternalFrame {
 
-    private CrudMascotas.CrudMascota crud;
+    private CrudMascota crud;
     private DefaultTableModel modelo = new DefaultTableModel(new String[]{"Nombre", "Especie", "Edad", "ID"}, 0);
 
-    public TablaPacientes(CrudMascotas.CrudMascota crud) {
+    public TablaPacientes(CrudMascota crud) {
         super("Lista de pacientes", true, true, true, true);
         this.crud = crud;
         interfazPacientes();

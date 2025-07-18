@@ -1,4 +1,4 @@
-package Registro;
+package Clinica;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -8,10 +8,10 @@ import java.awt.event.ActionListener;
 public class VentanaPrincipal extends JFrame {
 
     //Crud
-    private final CrudMascotas.CrudMascota crudMascotas = new CrudMascotas().new CrudMascota();
-    private final CrudConsultas crudConsultas = new CrudConsultas();
+    private CrudMascota crudMascotas = new CrudMascota();
+    private CrudConsultas crudConsultas = new CrudConsultas();
 
-    private final JDesktopPane escritorio = new JDesktopPane();
+    private JDesktopPane escritorio = new JDesktopPane();
     private JTree arbolServicios;
 
     public VentanaPrincipal() {
@@ -54,8 +54,8 @@ public class VentanaPrincipal extends JFrame {
             raiz.add(new DefaultMutableTreeNode(s));
         }
 
-        arbolServicios = new JTree(raiz);         // <─ 2  ahora usamos el atributo
-        arbolServicios.addTreeSelectionListener(e -> ServicioSeleccionado());  // <─ 3
+        arbolServicios = new JTree(raiz);
+        arbolServicios.addTreeSelectionListener(e -> ServicioSeleccionado());
 
         JScrollPane sc = new JScrollPane(arbolServicios);
         sc.setPreferredSize(new Dimension(170,0));
@@ -63,10 +63,10 @@ public class VentanaPrincipal extends JFrame {
     }
 
     private void ServicioSeleccionado() {
-        Object nodo = arbolServicios.getLastSelectedPathComponent();
-        if (nodo == null) return;
+        Object obj = arbolServicios.getLastSelectedPathComponent();
+        if (obj == null) return;
 
-        String nombre = nodo.toString();
+        String nombre = obj.toString();
         switch (nombre) {
             case "Vacunación" -> abrirVentanaVacunacion();
             // en el futuro: case "Cirugía" -> abrirVentanaCirugia();
@@ -78,28 +78,25 @@ public class VentanaPrincipal extends JFrame {
         // evitar duplicados
         for (JInternalFrame f : escritorio.getAllFrames()) {
             if (f instanceof VentanaVacunacion) {
-                try { f.setSelected(true); } catch (Exception ignored) {}
-                return;
+
             }
         }
         VentanaVacunacion vac = new VentanaVacunacion(crudMascotas);
         escritorio.add(vac);
         vac.setVisible(true);
-        try { vac.setSelected(true); } catch (Exception ignored) {}
     }
 
     //Ventanas
     private void abrirFormularioPaciente() {
-        escritorio.add(new VentanaPacientes(crudMascotas, this::actualizarTablas))
-                .setVisible(true);
+        escritorio.add(new VentanaPacientes(crudMascotas, this::actualizarTablas)).setVisible(true);
     }
+
     private void abrirTablaPacientes() {
-        escritorio.add(new TablaPacientes(crudMascotas))
-                .setVisible(true);
+        escritorio.add(new TablaPacientes(crudMascotas)).setVisible(true);
     }
+
     private void abrirPanelConsultas() {
-        escritorio.add(new VentanaConsultas(crudMascotas, crudConsultas))
-                .setVisible(true);
+        escritorio.add(new VentanaConsultas(crudMascotas, crudConsultas)).setVisible(true);
     }
 
     //Actualizar tablas

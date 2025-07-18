@@ -1,17 +1,16 @@
-package Registro;
+package Clinica;
 import java.time.LocalDate;
 
 import java.time.format.DateTimeParseException;
 
 public class Consulta {
 
-    private String      codigo;
-    private LocalDate   fecha;
+    private String codigo;
+    private LocalDate fecha;
     private Veterinario veterinario;
-    private Mascota     mascota;
+    private Mascota mascota;
 
     public Consulta(String codigo, LocalDate fecha, Veterinario veterinario, Mascota mascota) {
-
         setCodigo(codigo);
         setFecha(fecha);
         setVeterinario(veterinario);
