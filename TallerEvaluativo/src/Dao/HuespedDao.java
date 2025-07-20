@@ -1,8 +1,6 @@
 package Dao;
 
 import Dto.HuespedDto;
-import Modelo.Huesped;
-
 import java.util.ArrayList;
 import java.util.List;
 
